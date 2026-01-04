@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darko Watches - Shopping Bag</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">DARKO WATCHES</div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="bag.html">Bag</a></li>
+        </ul>
+    </nav>
+
+    <main style="padding: 40px; max-width: 800px; margin: 0 auto;">
+        <h1>Shopping Bag</h1>
+        <p style="color: #666; margin: 20px 0;">You may have to pay import duties</p>
+
+        <div id="bag-items">
+            <!-- Items will appear here if added from index -->
+            <p>Your bag is empty.</p>
+        </div>
+
+        <div style="border-top: 1px solid #eee; padding-top: 30px; margin-top: 40px;">
+            <p>Subtotal <span style="float:right;">$0.00</span></p>
+            <p>Delivery <span style="float:right;">$24.00</span></p>
+            <p style="font-weight:bold; font-size:20px; margin-top:20px;">
+                Total <span style="float:right;">USD $24.00</span>
+            </p>
+        </div>
+
+        <a href="#" class="checkout-btn">Go To Checkout</a>
+
+        <p style="text-align:center; margin-top:40px; color:#666;">
+            Free returns for 30 days | We can collect from your home
+        </p>
+    </main>
+
+    <script>
+        // Simple display of bag items (for demo)
+        let cart = JSON.parse(localStorage.getItem('darkoCart') || '[]');
+        if (cart.length > 0) {
+            document.getElementById('bag-items').innerHTML = cart.map(item => `
+                <div style="border-bottom:1px solid #eee; padding:20px 0; display:flex; align-items:center;">
+                    <img src="${item.img}" style="width:100px; margin-right:20px;">
+                    <div>
+                        <h3>${item.name}</h3>
+                        <p>${item.price}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+
+   <footer>
+    <p>Contact: davesdarko19@gmail.com | +233 535 548 3315</p>
+    <p>Free returns for 30 days | We can collect from your home</p>
+    <p>&copy; 2026 Darko Watches. All rights reserved.</p>
+</footer>
+</body>
+</html>
